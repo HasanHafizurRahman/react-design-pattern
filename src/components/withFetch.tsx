@@ -8,7 +8,8 @@ const withFetch = (WrappedComponent, fetchData) => {
     useEffect(() => {
       const fetchDataAsync = async () => {
         const res = await fetchData();
-        setData(res.movies);
+        console.log("response data:", res);
+        setData(res.movies); //this res return an Array of objects named movies
         setLoading(false);
       };
 

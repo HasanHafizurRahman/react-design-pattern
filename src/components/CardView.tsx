@@ -1,16 +1,15 @@
 import React from "react";
+import Card from "../reusable-components/Card";
 
 const CardView = ({ data }) => {
   return (
     <div>
       <h1>Card View</h1>
-      {data.map((movie) => (
-        <div key={movie.id} className="card">
-          <img src={movie.poster} alt={movie.title} />
-          <h2>{movie.title}</h2>
-          <p>Director: {movie.director}</p>
-        </div>
-      ))}
+      <div className="grid grid-cols-1 md:grid-cols-3 justify-center px-10 gap-8">
+        {data.slice(1, 7).map((movie) => (
+          <Card key={movie.id} movie={movie} />
+        ))}
+      </div>
     </div>
   );
 };

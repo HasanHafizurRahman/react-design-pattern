@@ -11,7 +11,7 @@ function App() {
   const TableViewWithFetch = withFetch(TableView, fetchMovies);
 
   return (
-    <div className="bg-gray-800 content-center">
+    <div>
       <CardViewWithFetch />
       <ListViewWithFetch />
       <TableViewWithFetch />
