@@ -1,26 +1,20 @@
 import { useState } from "react";
+import CardView from "./components/CardView";
+import withFetch from "./components/withFetch";
+import ListView from "./components/ListView";
+import fetchMovies from "./utils/movieApi";
+import TableView from "./components/TableView";
 
 function App() {
-  const [count, setCount] = useState(0);
+  const CardViewWithFetch = withFetch(CardView, fetchMovies);
+  const ListViewWithFetch = withFetch(ListView, fetchMovies);
+  const TableViewWithFetch = withFetch(TableView, fetchMovies);
 
   return (
     <div className="bg-gray-800 content-center">
-      <div>
-        <a href="https://vitejs.dev" target="_blank"></a>
-        <a href="https://react.dev" target="_blank"></a>
-      </div>
-      <h1 className="text-center text-blue-500">Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
+      <CardViewWithFetch />
+      <ListViewWithFetch />
+      <TableViewWithFetch />
     </div>
   );
 }
