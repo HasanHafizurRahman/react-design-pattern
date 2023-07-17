@@ -1,6 +1,3 @@
-/* eslint-disable @typescript-eslint/no-unsafe-call */
-/* eslint-disable @typescript-eslint/no-unsafe-member-access */
-import React from "react";
 import { MovieTypes } from "../types/Movietypes";
 
 interface ListViewProps {

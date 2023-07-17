@@ -1,17 +1,18 @@
-import { useState } from "react";
-import CardView from "./components/CardView";
-import withFetch from "./components/withFetch";
-import ListView from "./components/ListView";
+import CardView from "./HOC-components/CardView";
+import withFetch from "./HOC-components/withFetch";
+import ListView from "./HOC-components/ListView";
 import fetchMovies from "./utils/movieApi";
-import TableView from "./components/TableView";
+import TableView from "./HOC-components/TableView";
 
 function App() {
+  // HOC
   const CardViewWithFetch = withFetch(CardView, fetchMovies);
   const ListViewWithFetch = withFetch(ListView, fetchMovies);
   const TableViewWithFetch = withFetch(TableView, fetchMovies);
 
   return (
     <div>
+      {/* HOC  */}
       <CardViewWithFetch />
       <ListViewWithFetch />
       <TableViewWithFetch />

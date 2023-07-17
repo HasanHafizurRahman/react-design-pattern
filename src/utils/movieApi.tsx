@@ -1,9 +1,10 @@
-/* eslint-disable @typescript-eslint/no-unsafe-return */
-/* eslint-disable @typescript-eslint/no-unsafe-assignment */
+import { MovieTypes } from "../types/Movietypes";
 
-const fetchMovies = async () => {
-  const response = await fetch("https://json-faker.onrender.com/movies");
-  const data = await response.json();
+const fetchMovies = async (): Promise<MovieTypes[]> => {
+  const response: Response = await fetch(
+    "https://json-faker.onrender.com/movies"
+  );
+  const data: MovieTypes[] = (await response.json()) as MovieTypes[];
   return data;
 };
 
