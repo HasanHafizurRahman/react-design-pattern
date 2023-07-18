@@ -1,15 +1,24 @@
 import React, { useEffect, useState } from "react";
+import { MovieTypes } from "../types/Movietypes";
+import Loading from "../Loading";
 
-const withFetch = (WrappedComponent, fetchData) => {
-  return (props) => {
+interface IWithFetchProps {
+  data: MovieTypes[]; // Renamed 'data' to 'data'
+}
+
+const withFetch = (
+  WrappedComponent: React.ComponentType<IWithFetchProps>,
+  fetchData: () => Promise<MovieTypes[]>
+) => {
+  return () => {
     const [loading, setLoading] = useState(true);
-    const [data, setData] = useState([]);
+    const [data, setData] = useState<MovieTypes[]>([]); // Renamed 'data' to 'data'
 
     useEffect(() => {
       const fetchDataAsync = async () => {
         const res = await fetchData();
         console.log("response data:", res);
-        setData(res.movies); //this res return an Array of objects named movies
+        setData(res.movies);
         setLoading(false);
       };
 
@@ -17,10 +26,10 @@ const withFetch = (WrappedComponent, fetchData) => {
     }, []);
 
     if (loading) {
-      return <p>Loading...</p>;
+      return <Loading />;
     }
 
-    return <WrappedComponent data={data} {...props} />;
+    return <WrappedComponent data={data} />;
   };
 };
 
