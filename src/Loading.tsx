@@ -1,6 +1,6 @@
 import ContentLoader from "react-content-loader";
 
-const Loading = (props: undefined) => (
+const Loading = (props) => (
   <ContentLoader
     speed={2}
     width={800}

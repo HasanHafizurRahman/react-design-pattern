@@ -6,10 +6,10 @@ interface ICardView {
   data: MovieTypes[];
 }
 
-const CardView = ({ data }: ICardView) => {
+const MovieCard = ({ data }: ICardView) => {
   return (
     <div>
-      <h1 className="text-h1">Card View</h1>
+      <h1>Card View</h1>
       <div className="grid grid-cols-1 md:grid-cols-3 justify-center px-10 gap-8">
         {data.slice(1, 7).map((movie: MovieTypes) => (
           <Card key={movie.id} movie={movie} />
@@ -19,4 +19,4 @@ const CardView = ({ data }: ICardView) => {
   );
 };
 
-export default CardView;
+export default MovieCard;

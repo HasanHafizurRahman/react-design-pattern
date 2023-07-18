@@ -3,7 +3,7 @@ import { MovieTypes } from "../types/Movietypes";
 import Loading from "../Loading";
 
 interface IWithFetchProps {
-  data: MovieTypes[]; // Renamed 'data' to 'data'
+  data: MovieTypes[];
 }
 
 const withFetch = (
@@ -12,7 +12,7 @@ const withFetch = (
 ) => {
   return () => {
     const [loading, setLoading] = useState(true);
-    const [data, setData] = useState<MovieTypes[]>([]); // Renamed 'data' to 'data'
+    const [data, setData] = useState<MovieTypes[]>([]);
 
     useEffect(() => {
       const fetchDataAsync = async () => {

@@ -1,6 +1,6 @@
-import React from "react";
+import { MovieTypes } from "../types/Movietypes";
 
-const Card = ({ movie }) => {
+const Card = ({ movie }: { movie: MovieTypes }) => {
   return (
     <div className="max-w-sm text-center bg-white border border-gray-200 rounded-lg shadow py-2">
       <img
@@ -8,9 +8,9 @@ const Card = ({ movie }) => {
         src={movie.poster}
         alt=""
       />
-      <h3 className="mb-2 text-2xl font-bold tracking-tight text-gray-900">
+      <h1 className="mb-2 text-h2 font-bold tracking-tight text-gray-900">
         Title: {movie.title}
-      </h3>
+      </h1>
 
       <p className="mb-3 font-normal text-gray-700 dark:text-gray-400">
         Director: {movie.director}
